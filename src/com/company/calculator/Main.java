@@ -12,8 +12,14 @@ public class Main {
         if (values.length != 3) {
             throw new Exception("Строка не подходит. Завершение работы");
         }
+        boolean isRoman = isRoman(values);
 
-        int[] numbers = StringInInt.strToInt(values);
+        int[] numbers;
+        if (isRoman) {
+            numbers = new int[]{RomanArabicConvert.romanToArabic(values[0]), RomanArabicConvert.romanToArabic(values[2])};
+        } else {
+            numbers = StringInInt.strToInt(values);
+        }
         int n1 = numbers[0], n2 = numbers[1];
 
         int result = switch (values[1]) {
@@ -23,6 +29,19 @@ public class Main {
             case "/" -> n1 / n2;
             default -> throw new Exception("Не правильный знак. Конец работе");
         };
+
+        if (isRoman){
+            System.out.println(RomanArabicConvert.arabicToRoman(result));
+        } else
         System.out.println(result);
+    }
+    private static boolean isRoman(String[] values) {
+        try {
+            Integer.parseInt(values[0]);
+            Integer.parseInt(values[2]);
+        } catch (NumberFormatException e) {
+            return true;
+        }
+        return false;
     }
 }
