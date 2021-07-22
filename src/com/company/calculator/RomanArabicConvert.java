@@ -2,7 +2,7 @@ package com.company.calculator;
 import java.util.List;
 
 public class RomanArabicConvert {
-    public static int romanToArabic(String input) throws Exception {
+    public static int romanToArabic(String input) throws UnknownStringFormatException {
         String romanNumber = input.toUpperCase();
         int result = 0;
 

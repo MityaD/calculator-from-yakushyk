@@ -3,14 +3,14 @@ package com.company.calculator;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws UnknownStringFormatException {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
 
         String[] values = str.split(" ");
 
         if (values.length != 3) {
-            throw new Exception("Строка не подходит. Завершение работы");
+            throw new UnknownStringFormatException("Строка не подходит. Завершение работы");
         }
         boolean isRoman = isRoman(values);
 
@@ -27,7 +27,7 @@ public class Main {
             case "-" -> n1 - n2;
             case "*" -> n1 * n2;
             case "/" -> n1 / n2;
-            default -> throw new Exception("Не правильный знак. Конец работе");
+            default -> throw new UnknownStringFormatException("Не правильный знак. Конец работе");
         };
 
         if (isRoman){

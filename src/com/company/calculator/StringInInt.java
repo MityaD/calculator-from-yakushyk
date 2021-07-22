@@ -1,7 +1,7 @@
 package com.company.calculator;
 
 public class StringInInt {
-    static int[] strToInt (String[] values) throws Exception {
+    static int[] strToInt (String[] values) throws UnknownStringFormatException {
         int num1 = Integer.parseInt(values[0]);
         int num2 = Integer.parseInt(values[2]);
         Check.check(num1);
